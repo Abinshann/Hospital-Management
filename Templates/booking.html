@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends "base2.html" %}
+{% load crispy_forms_tags %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="/css/bootstrap.css">
+
+    </head>
+    <body>
+      
+        {% block content %}
+        
+        {% comment %} {%  for d in pat %}
+        <div class='mx-auto w-50 text-center text-black pt-2 pb-2 rounded mt-4' style="background-color:#A3C1AD">
+            <h5>Name  :{{d.p_name}}</h5>
+            <h5>Phone : +91{{d.p_phone}}</h5>
+            <h5>E-mail:{{d.p_email}}</h5>
+            
+            <h6>{{d.doc_name}}</h6>
+         
+            <p>Booking Date : {{d.booking_date}}</p> {% endcomment %}
+         
+         
+        {% comment %} </div> {% endcomment %}
+        {% comment %} {% endfor %} {% endcomment %}
+        <div class="container w-10 text-center my-5 mt-5">
+            <h1 class='text-center text-success'>Make an Appoinment</h1>
+            <form action="" method="POST" w=20>
+                {% csrf_token %}
+                {% comment %} {{form.as_p}} {% endcomment %}
+                {{form|crispy}}
+
+                <button class="btn btn-danger mb-2" type="submit">Submit</button>
+        </div>
+        {% endblock content %}
+           
+
+        <script src="" async defer></script>
+    </body>
+</html>
